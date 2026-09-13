@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
+import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom';
 import { Radio, Menu, X, Phone, MapPin } from 'lucide-react';
 
 /**
@@ -13,10 +13,12 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Handle live streaming connect placeholder
   const handleListenLive = () => {
     // TODO: connect ARMS live stream
+    navigate('/live');
   };
 
   // Navigation items defined once for consistency across desktop and mobile

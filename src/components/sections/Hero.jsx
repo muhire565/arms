@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Play, Radio, MapPin, ArrowUpRight, Signal } from 'lucide-react';
 import heroImage from '../../images/hero.png';
 
@@ -10,9 +10,12 @@ import heroImage from '../../images/hero.png';
  * Location: Nyaruntuntu, Ntungamo, Uganda
  */
 export default function Hero() {
+  const navigate = useNavigate();
+
   // Placeholder handler for live stream connection
   const handleListenLive = () => {
     // TODO: connect ARMS live audio stream
+    navigate('/live');
   };
 
   return (
