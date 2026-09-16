@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Radio, Sparkles, SunMedium, Users, Trophy, Moon, Languages } from 'lucide-react';
+import { ArrowRight, Radio, Sparkles, SunMedium, Users, Trophy, Moon, Languages, Clock, Mic } from 'lucide-react';
 import { programs } from '../data/programs';
 
 /**
@@ -20,6 +20,8 @@ export default function Programs() {
         return <Moon className="w-5 h-5" aria-hidden="true" />;
       case 'Languages':
         return <Languages className="w-5 h-5" aria-hidden="true" />;
+      case 'Mic':
+        return <Mic className="w-5 h-5" aria-hidden="true" />;
       default:
         return <Radio className="w-5 h-5" aria-hidden="true" />;
     }
@@ -41,11 +43,11 @@ export default function Programs() {
           </h1>
 
           <p className="text-neutral-400 text-base leading-relaxed">
-            Explore our diverse programming lineup connecting communities across Nyaruntuntu, Ntungamo, Uganda and beyond with engaging conversations, culture, news, and entertainment.
+            Explore our daily programming lineup connecting communities across Nyaruntuntu, Ntungamo, Uganda and beyond with engaging conversations, culture, news, and entertainment.
           </p>
         </div>
 
-        {/* 6 Programs Grid */}
+        {/* Programs Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {programs.map((program) => (
             <Link
@@ -55,7 +57,7 @@ export default function Programs() {
             >
               {/* Card Header: Category & Icon */}
               <div>
-                <div className="flex items-center justify-between mb-5">
+                <div className="flex items-center justify-between mb-4">
                   <span className="inline-block px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-bold text-amber-400">
                     {program.category}
                   </span>
@@ -66,23 +68,34 @@ export default function Programs() {
                 </div>
 
                 {/* Program Title */}
-                <h2 className="text-2xl font-black text-white group-hover:text-amber-300 transition-colors mb-2.5">
+                <h2 className="text-2xl font-black text-white group-hover:text-amber-300 transition-colors mb-2">
                   {program.title}
                 </h2>
 
-                {/* Short Tagline */}
-                <p className="text-xs font-semibold uppercase tracking-wider text-neutral-400 mb-3">
-                  {program.tagline}
-                </p>
+                {/* Broadcast Schedule & Moderator */}
+                <div className="flex flex-col gap-1.5 my-3 p-3 rounded-xl bg-neutral-950/60 border border-neutral-800/80 text-xs">
+                  {program.time && (
+                    <div className="flex items-center gap-2 text-amber-300 font-bold">
+                      <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" aria-hidden="true" />
+                      <span>{program.time}</span>
+                    </div>
+                  )}
+                  {program.moderator && (
+                    <div className="flex items-center gap-2 text-neutral-300">
+                      <Mic className="w-3.5 h-3.5 text-red-500 shrink-0" aria-hidden="true" />
+                      <span>Host: <strong className="text-white font-semibold">{program.moderator}</strong></span>
+                    </div>
+                  )}
+                </div>
 
                 {/* Professional Description */}
-                <p className="text-sm text-neutral-400 leading-relaxed">
+                <p className="text-sm text-neutral-400 leading-relaxed mt-2">
                   {program.description}
                 </p>
               </div>
 
               {/* Card Footer: Action */}
-              <div className="mt-8 pt-4 border-t border-neutral-800/80 flex items-center justify-between text-xs font-bold text-neutral-400 group-hover:text-amber-400 transition-colors">
+              <div className="mt-6 pt-4 border-t border-neutral-800/80 flex items-center justify-between text-xs font-bold text-neutral-400 group-hover:text-amber-400 transition-colors">
                 <span>View Program Details</span>
                 <div className="flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />

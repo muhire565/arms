@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import { ArrowLeft, Radio, MapPin, Signal, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Radio, MapPin, Signal, ArrowRight, Clock, Mic } from 'lucide-react';
 import { getProgramBySlug, programs } from '../data/programs';
 
 /**
@@ -67,13 +67,40 @@ export default function ProgramDetails() {
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-4">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white mb-3">
               {program.title}
             </h1>
 
-            <p className="text-lg text-amber-300 font-medium mb-8">
+            <p className="text-lg text-amber-300 font-medium mb-6">
               {program.tagline}
             </p>
+
+            {/* Broadcast Schedule & Moderator Details */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 p-4 sm:p-5 rounded-2xl bg-neutral-950/70 border border-neutral-800/90">
+              {program.time && (
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 shrink-0">
+                    <Clock className="w-5 h-5" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-bold text-neutral-400 uppercase tracking-wider block">Air Time</span>
+                    <span className="text-sm sm:text-base font-bold text-amber-300">{program.time}</span>
+                  </div>
+                </div>
+              )}
+
+              {program.moderator && (
+                <div className="flex items-center gap-3">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 shrink-0">
+                    <Mic className="w-5 h-5" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <span className="text-[11px] font-bold text-neutral-400 uppercase tracking-wider block">Host / Moderator</span>
+                    <span className="text-sm sm:text-base font-bold text-white">{program.moderator}</span>
+                  </div>
+                </div>
+              )}
+            </div>
 
             {/* Description Body */}
             <div className="border-t border-neutral-800/80 pt-8 mb-10">
