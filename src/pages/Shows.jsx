@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Radio, Clock, Calendar, ArrowRight, Signal } from 'lucide-react';
+import { Radio, Clock, Calendar, ArrowRight, Signal, Mic } from 'lucide-react';
 import { programs } from '../data/programs';
 
 /**
@@ -23,7 +23,7 @@ export default function Shows() {
           </h1>
 
           <p className="text-neutral-400 text-base leading-relaxed">
-            Welcome to the shows directory of African Radio Mindset Set. Tune in locally across Nyaruntuntu, Ntungamo, Uganda on 88.4 FM for our full programming schedule.
+            Welcome to the shows directory of African Radio Mindset Set. Tune in locally across Nyaruntuntu, Ntungamo, Uganda on 88.4 FM for our daily programming schedule.
           </p>
         </div>
 
@@ -33,13 +33,13 @@ export default function Shows() {
             <div className="max-w-2xl">
               <div className="flex items-center gap-2 text-xs font-bold text-amber-400 uppercase tracking-wider mb-2">
                 <Clock className="w-4 h-4" aria-hidden="true" />
-                <span>Lineup Status</span>
+                <span>Daily Broadcast Schedule</span>
               </div>
               <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
-                Show Schedules & Lineups Being Updated
+                Daily Radio Programming & Presenters
               </h2>
               <p className="text-neutral-300 text-sm leading-relaxed">
-                The detailed broadcast schedule and presenter timetable for ARMS 88.4 FM shows are currently being updated for this season. In the meantime, you can explore our official programs below or tune directly into our live terrestrial broadcast.
+                Explore our official daily timetable below, complete with air times and program moderators, broadcasting live from our Nyaruntuntu studio on 88.4 FM.
               </p>
             </div>
 
@@ -67,10 +67,10 @@ export default function Shows() {
           <div className="flex items-center justify-between mb-8">
             <div>
               <h2 className="text-2xl font-bold text-white mb-1">
-                Active Radio Programs
+                Daily Radio Programs & Hosts
               </h2>
               <p className="text-sm text-neutral-400">
-                Core programs currently featured on ARMS 88.4 FM
+                Core shows and presenters broadcasting daily on ARMS 88.4 FM
               </p>
             </div>
             <Link
@@ -90,12 +90,29 @@ export default function Shows() {
                 className="group p-6 rounded-2xl bg-neutral-900/60 hover:bg-neutral-800/80 border border-neutral-800 hover:border-amber-500/40 transition-all flex flex-col justify-between"
               >
                 <div>
-                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-semibold text-amber-400 mb-3">
-                    {program.category}
-                  </span>
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="inline-block px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-semibold text-amber-400">
+                      {program.category}
+                    </span>
+                    {program.time && (
+                      <span className="text-[11px] font-bold text-amber-300/90 flex items-center gap-1">
+                        <Clock className="w-3 h-3 text-amber-400" aria-hidden="true" />
+                        <span>{program.time}</span>
+                      </span>
+                    )}
+                  </div>
+                  
                   <h3 className="text-xl font-bold text-white group-hover:text-amber-300 transition-colors mb-2">
                     {program.title}
                   </h3>
+
+                  {program.moderator && (
+                    <div className="flex items-center gap-1.5 text-xs text-neutral-300 mb-2.5">
+                      <Mic className="w-3 h-3 text-red-500 shrink-0" aria-hidden="true" />
+                      <span>Host: <strong className="text-white font-medium">{program.moderator}</strong></span>
+                    </div>
+                  )}
+
                   <p className="text-sm text-neutral-400 line-clamp-2 leading-relaxed">
                     {program.description}
                   </p>

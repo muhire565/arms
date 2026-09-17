@@ -60,22 +60,57 @@ export default function Contact() {
           <div className="lg:col-span-5 space-y-6">
             
             {/* Direct Studio Phone Card */}
-            <div className="p-7 rounded-3xl bg-gradient-to-b from-neutral-900 via-[#10131B] to-neutral-900 border border-amber-500/30 shadow-xl">
-              <div className="flex items-center gap-3 text-green-400 mb-3">
+            <div className="p-7 rounded-3xl bg-gradient-to-b from-neutral-900 via-[#10131B] to-neutral-900 border-2 border-amber-500/40 shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 px-3 py-1 bg-amber-500 text-neutral-950 font-black text-[10px] tracking-wider uppercase rounded-bl-xl">
+                Live On-Air
+              </div>
+              <div className="flex items-center gap-3 text-green-400 mb-2">
                 <div className="p-2.5 rounded-xl bg-green-500/10 border border-green-500/20">
                   <Phone className="w-5 h-5" aria-hidden="true" />
                 </div>
-                <h2 className="text-lg font-bold text-white">Direct Phone</h2>
+                <div>
+                  <h2 className="text-xl font-black text-white leading-tight">Studio Call-In Lines</h2>
+                  <span className="text-xs text-amber-400 font-semibold">Call in live during our shows</span>
+                </div>
               </div>
-              <p className="text-sm text-neutral-400 mb-4">
-                Call or reach our station team directly during broadcast hours:
+              <p className="text-xs text-neutral-400 mb-4">
+                Speak directly with our presenters and moderators in the studio:
               </p>
-              <a
-                href="tel:+256772939504"
-                className="inline-flex items-center gap-2 text-lg sm:text-xl font-black text-amber-400 hover:text-amber-300 transition-colors"
-              >
-                <span>+256 772 939 504</span>
-              </a>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                <a
+                  href="tel:0776512195"
+                  className="flex items-center justify-between p-4 rounded-2xl bg-neutral-950 border border-amber-500/30 hover:border-amber-400 hover:bg-neutral-850 transition-all group"
+                >
+                  <div>
+                    <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider block">Studio Line 1</span>
+                    <span className="text-lg font-black text-amber-400 group-hover:text-amber-300">0776 512 195</span>
+                  </div>
+                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-green-500/10 text-green-400 group-hover:scale-110 transition-transform">
+                    <Phone className="w-4 h-4" />
+                  </div>
+                </a>
+
+                <a
+                  href="tel:0702994350"
+                  className="flex items-center justify-between p-4 rounded-2xl bg-neutral-950 border border-amber-500/30 hover:border-amber-400 hover:bg-neutral-850 transition-all group"
+                >
+                  <div>
+                    <span className="text-[10px] font-bold text-neutral-400 uppercase tracking-wider block">Studio Line 2</span>
+                    <span className="text-lg font-black text-amber-400 group-hover:text-amber-300">0702 994 350</span>
+                  </div>
+                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-green-500/10 text-green-400 group-hover:scale-110 transition-transform">
+                    <Phone className="w-4 h-4" />
+                  </div>
+                </a>
+              </div>
+
+              <div className="pt-3 border-t border-neutral-800 flex items-center justify-between text-xs text-neutral-400">
+                <span>Station Office Line:</span>
+                <a href="tel:+256772939504" className="text-neutral-300 hover:text-amber-400 font-semibold transition-colors">
+                  +256 772 939 504
+                </a>
+              </div>
             </div>
 
             {/* Station Location Card */}

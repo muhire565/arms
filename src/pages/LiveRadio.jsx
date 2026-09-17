@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Play, Pause, Radio, MapPin, Signal, Volume2, Info, Clock, AlertCircle } from 'lucide-react';
+import { Play, Pause, Radio, MapPin, Signal, Volume2, Info, Clock, AlertCircle, Phone } from 'lucide-react';
 
 /**
  * ARMS 88.4 FM - Live Radio Page
@@ -124,8 +124,44 @@ export default function LiveRadio() {
           </div>
         </div>
 
+        {/* Live Studio Call-In Action Card */}
+        <div className="mt-8 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-neutral-900 via-[#13151D] to-neutral-900 border-2 border-amber-500/30 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-4 text-center sm:text-left">
+            <div className="hidden sm:flex items-center justify-center w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 shrink-0">
+              <Phone className="w-7 h-7 text-green-400" aria-hidden="true" />
+            </div>
+            <div>
+              <div className="flex items-center justify-center sm:justify-start gap-2 mb-1">
+                <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
+                <span className="text-[11px] font-bold text-amber-400 uppercase tracking-wider">Live On-Air Call-In Lines</span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-black text-white">Call the Studio Directly</h3>
+              <p className="text-xs sm:text-sm text-neutral-400 mt-1">
+                Share your views, voice your request, and participate live in our ongoing shows.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
+            <a
+              href="tel:0776512195"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl bg-neutral-950 border border-amber-500/40 hover:border-amber-400 text-amber-300 hover:text-white font-black text-sm tracking-wide shadow-md transition-all active:scale-95 group"
+            >
+              <Phone className="w-4 h-4 text-green-400 group-hover:scale-110 transition-transform" />
+              <span>0776 512 195</span>
+            </a>
+            <a
+              href="tel:0702994350"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl bg-neutral-950 border border-amber-500/40 hover:border-amber-400 text-amber-300 hover:text-white font-black text-sm tracking-wide shadow-md transition-all active:scale-95 group"
+            >
+              <Phone className="w-4 h-4 text-green-400 group-hover:scale-110 transition-transform" />
+              <span>0702 994 350</span>
+            </a>
+          </div>
+        </div>
+
         {/* Terrestrial Tuning Guide Card */}
-        <div className="mt-8 p-6 rounded-2xl bg-neutral-900/50 border border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-6 p-6 rounded-2xl bg-neutral-900/50 border border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3 text-sm text-neutral-300">
             <Volume2 className="w-5 h-5 text-amber-400 shrink-0" aria-hidden="true" />
             <span>Have an FM radio in the area? Set your tuner to <strong>88.4 FM</strong> for crystal-clear local reception.</span>

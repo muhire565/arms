@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Radio, Sparkles, Newspaper } from 'lucide-react';
+import { ArrowRight, Radio, Sparkles, Newspaper, Clock, Mic } from 'lucide-react';
 import Hero from '../components/sections/Hero';
 import { programs } from '../data/programs';
 import { newsArticles } from '../data/news';
@@ -37,7 +37,7 @@ export default function Home() {
                 to="/programs"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-amber-400 hover:text-amber-300 transition-colors group"
               >
-                <span>View All 6 Programs</span>
+                <span>View All Programs</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </Link>
             </div>
@@ -50,12 +50,29 @@ export default function Home() {
                   className="group flex flex-col justify-between p-6 rounded-2xl bg-neutral-900/60 hover:bg-neutral-800/80 border border-neutral-800 hover:border-amber-500/40 transition-all duration-300 shadow-lg hover:shadow-amber-500/5 hover:-translate-y-0.5"
                 >
                   <div>
-                    <span className="inline-block px-2.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-semibold text-amber-400 mb-4">
-                      {program.category}
-                    </span>
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <span className="inline-block px-2.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs font-semibold text-amber-400">
+                        {program.category}
+                      </span>
+                      {program.time && (
+                        <span className="text-[11px] font-bold text-amber-300/90 flex items-center gap-1">
+                          <Clock className="w-3 h-3 text-amber-400" aria-hidden="true" />
+                          <span>{program.time}</span>
+                        </span>
+                      )}
+                    </div>
+
                     <h3 className="text-xl font-bold text-white group-hover:text-amber-300 transition-colors mb-2">
                       {program.title}
                     </h3>
+
+                    {program.moderator && (
+                      <div className="flex items-center gap-1.5 text-xs text-neutral-300 mb-2.5">
+                        <Mic className="w-3 h-3 text-red-500 shrink-0" aria-hidden="true" />
+                        <span>Host: <strong className="text-white font-medium">{program.moderator}</strong></span>
+                      </div>
+                    )}
+
                     <p className="text-sm text-neutral-400 line-clamp-2 leading-relaxed">
                       {program.description}
                     </p>

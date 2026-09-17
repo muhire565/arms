@@ -145,13 +145,25 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-green-500 shrink-0 mt-0.5" aria-hidden="true" />
                 <div className="flex flex-col">
-                  <span className="font-semibold text-white">Station Phone</span>
-                  <a
-                    href="tel:+256772939504"
-                    className="text-amber-400 hover:text-amber-300 font-medium text-xs mt-0.5 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-amber-400 rounded"
-                  >
-                    +256 772 939 504
-                  </a>
+                  <span className="font-semibold text-white">Live Studio Call-In</span>
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-0.5">
+                    <a
+                      href="tel:0776512195"
+                      className="text-amber-400 hover:text-amber-300 font-bold text-xs transition-colors"
+                    >
+                      0776 512 195
+                    </a>
+                    <span className="text-neutral-600 text-xs">•</span>
+                    <a
+                      href="tel:0702994350"
+                      className="text-amber-400 hover:text-amber-300 font-bold text-xs transition-colors"
+                    >
+                      0702 994 350
+                    </a>
+                  </div>
+                  <span className="text-[11px] text-neutral-400 mt-1">
+                    Office: <a href="tel:+256772939504" className="text-neutral-400 hover:text-amber-400">+256 772 939 504</a>
+                  </span>
                 </div>
               </div>
             </div>

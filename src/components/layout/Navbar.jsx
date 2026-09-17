@@ -146,6 +146,16 @@ export default function Navbar() {
 
           {/* ================= RIGHT: LISTEN LIVE BUTTON & HAMBURGER ================= */}
           <div className="flex items-center gap-2 sm:gap-3">
+            {/* Quick Studio Call-In Pill (Desktop) */}
+            <a
+              href="tel:0776512195"
+              className="hidden xl:inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-semibold text-neutral-300 hover:text-amber-400 bg-neutral-900/80 border border-amber-500/20 hover:border-amber-400/40 transition-colors"
+              title="Call Studio: 0776 512 195"
+            >
+              <Phone className="w-3.5 h-3.5 text-green-400" />
+              <span>Studio: <strong className="text-amber-400">0776 512 195</strong></span>
+            </a>
+
             {/* Prominent Desktop "Listen Live" Button */}
             <button
               type="button"
@@ -241,19 +251,38 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Mobile Station Quick Details */}
-          <div className="mt-2 pt-3 border-t border-neutral-800/80 flex flex-col gap-2 text-xs text-neutral-400">
+          {/* Mobile Station Quick Details & Studio Numbers */}
+          <div className="mt-2 pt-3 border-t border-neutral-800/80 flex flex-col gap-2.5 text-xs text-neutral-400">
             <div className="flex items-center gap-2">
               <MapPin className="w-3.5 h-3.5 text-amber-500 shrink-0" aria-hidden="true" />
               <span>Nyaruntuntu, Ntungamo, Uganda</span>
             </div>
-            <a
-              href="tel:+256772939504"
-              className="flex items-center gap-2 hover:text-amber-400 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-amber-400 rounded"
-            >
-              <Phone className="w-3.5 h-3.5 text-green-500 shrink-0" aria-hidden="true" />
-              <span>+256 772 939 504</span>
-            </a>
+
+            <div className="flex flex-col gap-1.5 pt-1">
+              <span className="text-[11px] font-bold text-amber-400 uppercase tracking-wider">
+                Call Studio Live On-Air:
+              </span>
+              <div className="grid grid-cols-2 gap-2">
+                <a
+                  href="tel:0776512195"
+                  className="flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-lg bg-neutral-900 border border-amber-500/30 text-amber-300 font-bold hover:bg-neutral-850 transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5 text-green-400" />
+                  <span>0776 512 195</span>
+                </a>
+                <a
+                  href="tel:0702994350"
+                  className="flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-lg bg-neutral-900 border border-amber-500/30 text-amber-300 font-bold hover:bg-neutral-850 transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5 text-green-400" />
+                  <span>0702 994 350</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="text-[11px] text-neutral-500 pt-1">
+              Station Office: <a href="tel:+256772939504" className="text-neutral-400 hover:text-amber-400">+256 772 939 504</a>
+            </div>
           </div>
         </div>
       </div>

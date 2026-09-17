@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Play, Radio, MapPin, ArrowUpRight, Signal } from 'lucide-react';
+import { Play, Radio, MapPin, ArrowUpRight, Signal, Phone } from 'lucide-react';
 import heroImage from '../../images/hero.png';
 
 /**
@@ -145,16 +145,26 @@ export default function Hero() {
               </Link>
             </div>
 
-            {/* Trust / Broadcasting Location Footer */}
-            <div className="flex items-center gap-2 text-xs sm:text-sm text-neutral-400 pt-1">
-              <div className="flex items-center justify-center w-5 h-5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 shrink-0">
-                <MapPin className="w-3 h-3" aria-hidden="true" />
+            {/* Trust / Broadcasting Location & Studio Numbers Footer */}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-neutral-400 pt-1">
+              <div className="flex items-center gap-2">
+                <div className="flex items-center justify-center w-5 h-5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 shrink-0">
+                  <MapPin className="w-3 h-3" aria-hidden="true" />
+                </div>
+                <span className="tracking-wide">
+                  Nyaruntuntu • Ntungamo • Uganda
+                </span>
               </div>
-              <span className="tracking-wide">
-                Broadcasting from <span className="text-neutral-200 font-medium">Nyaruntuntu</span> •{' '}
-                <span className="text-neutral-200 font-medium">Ntungamo</span> •{' '}
-                <span className="text-amber-400 font-semibold">Uganda</span>
-              </span>
+
+              <div className="hidden sm:block text-neutral-700">•</div>
+
+              <div className="flex items-center gap-1.5 text-xs text-amber-400 font-bold">
+                <Phone className="w-3.5 h-3.5 text-green-400 shrink-0" />
+                <span>Studio:</span>
+                <a href="tel:0776512195" className="hover:text-amber-300 hover:underline transition-colors">0776 512 195</a>
+                <span className="text-neutral-600">/</span>
+                <a href="tel:0702994350" className="hover:text-amber-300 hover:underline transition-colors">0702 994 350</a>
+              </div>
             </div>
 
           </div>
